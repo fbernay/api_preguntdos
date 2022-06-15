@@ -10,7 +10,7 @@ public class Respuesta {
    @Column(name = "respuestaId", nullable = false)
    @GeneratedValue(strategy=GenerationType.IDENTITY)
    private Long respuestaId;
-   private boolean esCorrecta;
+   private String esCorrecta;
    private String texto;
 
 }
