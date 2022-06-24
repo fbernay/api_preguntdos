@@ -14,18 +14,17 @@ import java.util.Set;
 public class PreguntaModel {
 
     @Id
-    @Column(name = "preguntaId", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long preguntaId;
-
-    @ManyToOne
-    @JoinColumn(name = "categoriaId")
-    private Categoria categoriaId;
+    @Column(name = "pregunta_id")
+    private Integer id;
 
     private String enunciado;
 
-    @ManyToOne
-    @JoinColumn(name = "respuestaId")
-    private Respuesta opciones;
+    @ManyToOne // join columns van donde esta FK
+    @JoinColumn(name = "categoria_id", referencedColumnName = "categoria_id")
+    private Categoria categoria;
+
+    @OneToMany(mappedBy = "pregunta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Respuesta> opciones = new ArrayList<>();
 
 }

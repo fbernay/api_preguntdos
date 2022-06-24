@@ -19,7 +19,7 @@ public class PreguntaService {
 
     }
 
-    public ArrayList<PreguntaModel> obtenerpreguntas(){
+    public ArrayList<PreguntaModel> obtenerPreguntas(){
         return (ArrayList<PreguntaModel>) this.preguntaRepository.findAll();
     }
 

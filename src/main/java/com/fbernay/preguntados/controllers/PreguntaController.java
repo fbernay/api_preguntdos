@@ -22,7 +22,7 @@ public class PreguntaController {
 
     @GetMapping("/preguntas")
     public ArrayList<PreguntaModel> getAllPreguntas()  {
-       return preguntaService.obtenerpreguntas();
+       return preguntaService.obtenerPreguntas();
     }
 
     @PostMapping("/preguntas")
