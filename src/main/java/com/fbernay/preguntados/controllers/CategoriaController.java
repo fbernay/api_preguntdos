@@ -1,6 +1,7 @@
 package com.fbernay.preguntados.controllers;
 
-import com.fbernay.preguntados.models.Categoria;
+import com.fbernay.preguntados.dtos.CategoriaDto;
+import com.fbernay.preguntados.models.CategoriaModel;
 import com.fbernay.preguntados.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,22 +25,20 @@ public class CategoriaController {
         this.categoriaService = categoriaService;
     }
 
-
     @GetMapping("/categorias")
-    public ArrayList<Categoria> getAllCategorias() {
+    public ArrayList<CategoriaModel> getAllCategorias() {
 
         return this.categoriaService.obtenerCategorias();
     }
 
     @PostMapping("/categorias")
-    public Categoria createCategoria(@RequestBody Categoria categoria) {
-        return this.categoriaService.crearCategoria(categoria);
+    public CategoriaModel createCategoria(@RequestBody CategoriaDto categoriaDto) {
+        return this.categoriaService.crearCategoria(categoriaDto);
     }
 
     @GetMapping("/categorias/{id}")
-    public Optional<Categoria> getCategoria(@PathVariable("id") Long id) {
+    public Optional<CategoriaModel> getCategoria(@PathVariable("id") Long id) {
       return this.categoriaService.obtenerCategoriaId(id);
-
     }
 
     @DeleteMapping("/categorias/{id}")

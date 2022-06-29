@@ -1,6 +1,7 @@
 package com.fbernay.preguntados.services;
 
-import com.fbernay.preguntados.models.Categoria;
+import com.fbernay.preguntados.dtos.CategoriaDto;
+import com.fbernay.preguntados.models.CategoriaModel;
 import com.fbernay.preguntados.repositories.CategoriaRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,15 +19,16 @@ public class CategoriaService {
         this.categoriaRepository = categoriaRepository;
 
     }
-    public ArrayList<Categoria> obtenerCategorias(){
-        return (ArrayList<Categoria>) categoriaRepository.findAll();
+    public ArrayList<CategoriaModel> obtenerCategorias(){
+        return (ArrayList<CategoriaModel>) categoriaRepository.findAll();
     }
 
-    public Categoria crearCategoria(Categoria categoria) {
-      return  categoriaRepository.save(categoria);
+    public CategoriaModel crearCategoria(CategoriaDto categoriaDto) {
+
+      return  categoriaRepository.save(categoriaDto.toEntity());
     }
 
-    public Optional<Categoria> obtenerCategoriaId(Long id) {
+    public Optional<CategoriaModel> obtenerCategoriaId(Long id) {
         return categoriaRepository.findById(id);
     }
 

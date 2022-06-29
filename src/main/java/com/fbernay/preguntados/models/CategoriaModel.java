@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "categorias")
-public class Categoria {
+public class CategoriaModel {
 
     @Id
     @Column(name = "categoria_id")
@@ -21,8 +21,8 @@ public class Categoria {
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-//    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JsonIgnore
-//    private List<PreguntaModel> preguntas = new ArrayList<>();
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<PreguntaModel> preguntas = new ArrayList<>();
 
 }

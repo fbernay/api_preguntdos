@@ -4,9 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity
@@ -20,11 +18,10 @@ public class PreguntaModel {
 
     private String enunciado;
 
-    @ManyToOne // join columns van donde esta FK
     @JoinColumn(name = "categoria_id", referencedColumnName = "categoria_id")
-    private Categoria categoria;
+    private Long categoria;
 
     @OneToMany(mappedBy = "pregunta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Respuesta> opciones = new ArrayList<>();
+    private List<RespuestaModel> opciones = new ArrayList<>();
 
 }

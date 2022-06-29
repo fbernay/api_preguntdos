@@ -1,4 +1,5 @@
 package com.fbernay.preguntados.controllers;
+import com.fbernay.preguntados.dtos.PreguntaDto;
 import com.fbernay.preguntados.models.PreguntaModel;
 import com.fbernay.preguntados.services.PreguntaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class PreguntaController {
     }
 
     @PostMapping("/preguntas")
-    public PreguntaModel createPregunta(@RequestBody PreguntaModel pregunta)  {
-        return this.preguntaService.crearPregunta(pregunta);
+    public PreguntaModel createPregunta(@RequestBody PreguntaDto preguntaDto)  {
+        return this.preguntaService.crearPregunta(preguntaDto);
     }
 
     @GetMapping("/preguntas/{id}")
